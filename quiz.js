@@ -29,6 +29,102 @@ const quizData = [
     options: ["Undefined", "Number", "Boolean", "Float"],
     answer: "Float",
   },
+  {
+    question: "Which HTML attribute is used to define inline styles?",
+    options: ["font", "style", "class", "styles"],
+    answer: "style",
+  },
+  {
+    question: "Which property is used to change the background color in CSS?",
+    options: ["color", "bgcolor", "background-color", "background"],
+    answer: "background-color",
+  },
+  {
+    question: "How do you write 'Hello World' in an alert box in JavaScript?",
+    options: [
+      "alertBox('Hello World');",
+      "alert('Hello World');",
+      "msgBox('Hello World');",
+      "msg('Hello World');",
+    ],
+    answer: "alert('Hello World');",
+  },
+  {
+    question: "Which HTML tag is used to create a hyperlink?",
+    options: ["<a>", "<link>", "<href>", "<url>"],
+    answer: "<a>",
+  },
+  {
+    question: "Which CSS property controls the text size?",
+    options: ["text-style", "font-style", "font-size", "text-size"],
+    answer: "font-size",
+  },
+  {
+    question: "Which symbol is used for comments in JavaScript?",
+    options: ["<!-- comment -->", "// comment", "/* comment */", "# comment"],
+    answer: "// comment",
+  },
+  {
+    question: "Which HTML tag is used to display an image?",
+    options: ["<img>", "<image>", "<src>", "<picture>"],
+    answer: "<img>",
+  },
+  {
+    question: "How do you add a class in CSS selector?",
+    options: [".classname", "#classname", "classname", "*classname"],
+    answer: ".classname",
+  },
+  {
+    question: "What does CSS stand for?",
+    options: [
+      "Creative Style System",
+      "Cascading Style Sheets",
+      "Computer Style Syntax",
+      "Colorful Style System",
+    ],
+    answer: "Cascading Style Sheets",
+  },
+  {
+    question: "Which HTML tag is used for the largest heading?",
+    options: ["<h6>", "<h1>", "<heading>", "<head>"],
+    answer: "<h1>",
+  },
+  {
+    question: "Which method is used to select an element by ID in JavaScript?",
+    options: [
+      "getElementByClass",
+      "getElementById",
+      "querySelectorAll",
+      "getId",
+    ],
+    answer: "getElementById",
+  },
+  {
+    question:
+      "Which HTML attribute is used to define alternative text for an image?",
+    options: ["alt", "title", "src", "longdesc"],
+    answer: "alt",
+  },
+  {
+    question: "Which operator is used to assign a value in JavaScript?",
+    options: ["-", "=", "==", "==="],
+    answer: "=",
+  },
+  {
+    question: "Which HTML tag is used to create an unordered list?",
+    options: ["<ol>", "<ul>", "<li>", "<list>"],
+    answer: "<ul>",
+  },
+  {
+    question: "How do you declare a JavaScript variable?",
+    options: [
+      "v carName;",
+      "variable carName;",
+      "var carName;",
+      "dim carName;",
+    ],
+    answer: "var carName;",
+  },
 ];
 
 const questionEl = document.getElementById("question");
@@ -63,7 +159,7 @@ function setTimer() {
 function loadQuestion() {
   setTimer();
   const currentQuestion = quizData[questionNum];
-  questionEl.innerText = currentQuestion.question;
+  questionEl.innerText = `${questionNum + 1}. ${currentQuestion.question}`;
   optionsEl.innerText = "";
   currentQuestion.options.forEach((opt) => {
     const button = document.createElement(`button`);
