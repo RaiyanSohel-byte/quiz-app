@@ -165,7 +165,7 @@ function loadQuestion() {
     const button = document.createElement(`button`);
     button.innerText = opt;
     button.className =
-      "border border-black rounded-[10px] border-2 font-bold w-[300px] p-[10px] hover:bg-[#2563eb] hover:text-white transition-all duration-[0.3s]";
+      "border border-black rounded-[10px] border-2 font-bold w-[300px] p-[10px] cursor-pointer hover:bg-[#2563eb] hover:text-white transition-all duration-[0.3s]";
     optionsEl.appendChild(button);
     button.addEventListener("click", () => {
       clearInterval(timer);
