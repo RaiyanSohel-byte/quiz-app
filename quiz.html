@@ -4,15 +4,20 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Quiz App</title>
+    <link rel="stylesheet" href="style.css" />
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body class="flex items-center justify-center h-screen bg-gray-100">
-    <div class="container bg-white p-6 rounded-lg shadow-lg w-96 text-center">
+  <body
+    class="flex items-center justify-center h-screen bg-gray-100 bg-[url(images/image-3.jpg)] bg-cover bg-no-repeat eb"
+  >
+    <div
+      class="container bg-white/20 backdrop-blur-lg border border-white/30 p-6 rounded-2xl shadow-lg w-96 text-center"
+    >
       <div class="timer text-xl font-semibold mb-4"></div>
       <h1 class="text-2xl font-bold mb-4">Quiz App</h1>
 
       <!-- Question -->
-      <div id="question" class="text-lg font-medium mb-4">
+      <div id="question" class="text-lg font-bold mb-4">
         Question will appear here
       </div>
 
@@ -24,13 +29,15 @@
       <!-- Next Button -->
       <button
         id="nextBtn"
-        class="mt-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+        class="mt-4 bg-[#e78a2e] shadow-lg text-black font-bold px-4 py-2 rounded-[10px] cursor-pointer hover:bg-[#e29e59] transition-all duration-[0.3s]"
       >
         Next
       </button>
 
       <!-- Score -->
-      <div id="score" class="mt-4 text-gray-700 font-semibold">Score: 0</div>
+      <div id="score" class="mt-4 text-xl text-black font-extrabold">
+        Score: 0
+      </div>
     </div>
     <script src="quiz.js"></script>
   </body>

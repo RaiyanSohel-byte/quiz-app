@@ -29,102 +29,6 @@ const quizData = [
     options: ["Undefined", "Number", "Boolean", "Float"],
     answer: "Float",
   },
-  {
-    question: "Which HTML attribute is used to define inline styles?",
-    options: ["font", "style", "class", "styles"],
-    answer: "style",
-  },
-  {
-    question: "Which property is used to change the background color in CSS?",
-    options: ["color", "bgcolor", "background-color", "background"],
-    answer: "background-color",
-  },
-  {
-    question: "How do you write 'Hello World' in an alert box in JavaScript?",
-    options: [
-      "alertBox('Hello World');",
-      "alert('Hello World');",
-      "msgBox('Hello World');",
-      "msg('Hello World');",
-    ],
-    answer: "alert('Hello World');",
-  },
-  {
-    question: "Which HTML tag is used to create a hyperlink?",
-    options: ["<a>", "<link>", "<href>", "<url>"],
-    answer: "<a>",
-  },
-  {
-    question: "Which CSS property controls the text size?",
-    options: ["text-style", "font-style", "font-size", "text-size"],
-    answer: "font-size",
-  },
-  {
-    question: "Which symbol is used for comments in JavaScript?",
-    options: ["<!-- comment -->", "// comment", "/* comment */", "# comment"],
-    answer: "// comment",
-  },
-  {
-    question: "Which HTML tag is used to display an image?",
-    options: ["<img>", "<image>", "<src>", "<picture>"],
-    answer: "<img>",
-  },
-  {
-    question: "How do you add a class in CSS selector?",
-    options: [".classname", "#classname", "classname", "*classname"],
-    answer: ".classname",
-  },
-  {
-    question: "What does CSS stand for?",
-    options: [
-      "Creative Style System",
-      "Cascading Style Sheets",
-      "Computer Style Syntax",
-      "Colorful Style System",
-    ],
-    answer: "Cascading Style Sheets",
-  },
-  {
-    question: "Which HTML tag is used for the largest heading?",
-    options: ["<h6>", "<h1>", "<heading>", "<head>"],
-    answer: "<h1>",
-  },
-  {
-    question: "Which method is used to select an element by ID in JavaScript?",
-    options: [
-      "getElementByClass",
-      "getElementById",
-      "querySelectorAll",
-      "getId",
-    ],
-    answer: "getElementById",
-  },
-  {
-    question:
-      "Which HTML attribute is used to define alternative text for an image?",
-    options: ["alt", "title", "src", "longdesc"],
-    answer: "alt",
-  },
-  {
-    question: "Which operator is used to assign a value in JavaScript?",
-    options: ["-", "=", "==", "==="],
-    answer: "=",
-  },
-  {
-    question: "Which HTML tag is used to create an unordered list?",
-    options: ["<ol>", "<ul>", "<li>", "<list>"],
-    answer: "<ul>",
-  },
-  {
-    question: "How do you declare a JavaScript variable?",
-    options: [
-      "v carName;",
-      "variable carName;",
-      "var carName;",
-      "dim carName;",
-    ],
-    answer: "var carName;",
-  },
 ];
 
 const questionEl = document.getElementById("question");
@@ -135,7 +39,7 @@ const timerEl = document.querySelector(".timer");
 
 let questionNum = 0;
 let scorePoint = 0;
-let timeLeft = 10;
+let timeLeft = 30;
 let timer;
 
 function setTimer() {
@@ -165,7 +69,7 @@ function loadQuestion() {
     const button = document.createElement(`button`);
     button.innerText = opt;
     button.className =
-      "border border-2 font-bold w-[300px] p-[10px] hover:bg-[#2563eb] hover:text-white transition-all duration-[0.3s]";
+      "border border-black rounded-[10px] border-2 font-bold w-[300px] p-[10px] hover:bg-[#2563eb] hover:text-white transition-all duration-[0.3s]";
     optionsEl.appendChild(button);
     button.addEventListener("click", () => {
       clearInterval(timer);
@@ -189,6 +93,8 @@ function loadQuestion() {
   });
 }
 nextBtn.addEventListener("click", () => {
+  scoreEl.innerText = `Score: ${scorePoint}`;
+
   if (questionNum < quizData.length - 1) {
     questionNum++;
     loadQuestion();
@@ -198,17 +104,17 @@ nextBtn.addEventListener("click", () => {
     optionsEl.style.display = "none";
     nextBtn.style.display = "none";
     timerEl.innerText = "";
-    scoreEl.innerText = "";
     const container = document.querySelector(".container");
     const resultP = document.createElement("p");
     resultP.className = "mt-4 font-bold text-lg";
-    resultP.innerText = `Quiz finished!!! Your score is ${scorePoint}/${quizData.length}`;
+    resultP.innerText = `Quiz finished!!! `;
+    scoreEl.innerText = `Your score is ${scorePoint} out of ${quizData.length}`;
     container.appendChild(resultP);
 
     const restartButton = document.createElement("button");
     restartButton.innerText = "Restart";
     restartButton.className =
-      "mt-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600";
+      "mt-4 bg-[#e78a2e] shadow-lg text-black font-bold px-4 py-2 rounded-[10px] cursor-pointer hover:bg-[#e29e59] transition-all duration-[0.3s]";
     container.appendChild(restartButton);
 
     restartButton.addEventListener("click", () => {
@@ -222,6 +128,7 @@ nextBtn.addEventListener("click", () => {
       nextBtn.style.margin = "16px auto";
       resultP.remove();
       restartButton.remove();
+
       loadQuestion();
     });
   }
